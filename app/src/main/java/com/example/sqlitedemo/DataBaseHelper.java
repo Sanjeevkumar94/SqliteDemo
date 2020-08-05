@@ -2,6 +2,7 @@ package com.example.sqlitedemo;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -47,5 +48,15 @@ public class DataBaseHelper extends SQLiteOpenHelper {
            return  false;
            else
                return  true;
+    }
+
+
+
+    public Cursor getdata(String mobileNumber){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE MOBILE_NUMBER = '" + mobileNumber+"'";
+
+        Cursor cursor = sqLiteDatabase.rawQuery(query,null);
+        return cursor;
     }
 }

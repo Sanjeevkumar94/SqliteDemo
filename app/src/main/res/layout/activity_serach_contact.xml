@@ -4,16 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InsertActivity"
+    tools:context=".SerachContactActivity"
     android:orientation="vertical"
     >
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/et_name"
-        android:hint="names"
-        />
+
 
     <EditText
         android:layout_width="match_parent"
@@ -22,16 +17,24 @@
         android:hint="Mobile Number"
         />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-            android:id="@+id/et_email"
-        android:hint="Emails"
-        />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="save"
-        android:id="@+id/btn_save"
+        android:text="Search"
+        android:id="@+id/btn_search"
         />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_name"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_email"
+        />
+
+
 </LinearLayout>
