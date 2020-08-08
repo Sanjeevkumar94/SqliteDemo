@@ -34,4 +34,11 @@
         android:id="@+id/btn_update"
         android:text="Update Contact"
         />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_view_all_detail"
+        android:text="View All Contacts"
+        />
 </LinearLayout>

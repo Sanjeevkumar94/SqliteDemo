@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UpdateActivty"></activity>
+        <activity android:name=".ViewAllListActivity"></activity>
+        <activity android:name=".UpdateActivty" />
         <activity android:name=".DeleteActivity" />
         <activity android:name=".SerachContactActivity" />
         <activity android:name=".InsertActivity" />

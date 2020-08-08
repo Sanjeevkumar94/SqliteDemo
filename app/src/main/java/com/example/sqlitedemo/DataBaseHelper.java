@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.sql.SQLDataException;
+import java.util.ArrayList;
 
 import androidx.annotation.Nullable;
 
@@ -60,19 +61,39 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public void deleteData(String mobile_number) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        sqLiteDatabase.delete(TABLE_NAME," MOBILE_NUMBER = '"+mobile_number+"'",null);
+        sqLiteDatabase.delete(TABLE_NAME, " MOBILE_NUMBER = '" + mobile_number + "'", null);
         sqLiteDatabase.close();
 
     }
 
 
-    public void updateData(String number,String name,String emai){
+    public void updateData(String number, String name, String emai) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put("NAME",name);
-        contentValues.put("EMAIL",emai);
-        sqLiteDatabase.update(TABLE_NAME,contentValues,"MOBILE_NUMBER = '"+number+"'",null);
+        contentValues.put("NAME", name);
+        contentValues.put("EMAIL", emai);
+        sqLiteDatabase.update(TABLE_NAME, contentValues, "MOBILE_NUMBER = '" + number + "'", null);
         sqLiteDatabase.close();
+    }
+
+
+    public ArrayList<UserInfo> getAllContactDetails() {
+
+        String query = "SELECT * FROM " + TABLE_NAME;
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        ArrayList<UserInfo> userInfoList = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            UserInfo userInfo = new UserInfo();
+            userInfo.setId(cursor.getString(0));
+            userInfo.setName(cursor.getString(1));
+            userInfo.setEmail(cursor.getString(2));
+            userInfo.setMobile(cursor.getString(3));
+
+            userInfoList.add(userInfo);
+        }
+
+        return userInfoList;
     }
 }
