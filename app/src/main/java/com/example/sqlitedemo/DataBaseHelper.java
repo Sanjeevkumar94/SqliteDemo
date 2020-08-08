@@ -61,6 +61,18 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void deleteData(String mobile_number) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         sqLiteDatabase.delete(TABLE_NAME," MOBILE_NUMBER = '"+mobile_number+"'",null);
+        sqLiteDatabase.close();
 
+    }
+
+
+    public void updateData(String number,String name,String emai){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("NAME",name);
+        contentValues.put("EMAIL",emai);
+        sqLiteDatabase.update(TABLE_NAME,contentValues,"MOBILE_NUMBER = '"+number+"'",null);
+        sqLiteDatabase.close();
     }
 }
